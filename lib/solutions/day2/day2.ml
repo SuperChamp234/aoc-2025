@@ -1,25 +1,5 @@
 open Printf
 
-let read_whole_chan chan =
-  let buf = Buffer.create 4096 in
-  let rec loop () =
-    let line = input_line chan in
-    Buffer.add_string buf line;
-    Buffer.add_char buf '\n';
-    loop ()
-  in
-  try loop () with End_of_file -> Buffer.contents buf
-
-let read_whole_file filename =
-  let chan = open_in filename in
-  try
-    let s = read_whole_chan chan in
-    close_in chan;
-    s
-  with e ->
-    close_in_noerr chan;
-    raise e
-
 (* Need to parse a single line in the input
   by simply first stripping with comma and then
   stripping via - to form a pair*)
@@ -113,16 +93,12 @@ let parse_input func arr =
 let day2_part1 inp = parse_input check_repeating_digits inp
 let day2_part2 inp = parse_input validate_2 inp
 
-let () =
-  if Array.length Sys.argv < 2 then
-    Printf.printf "Usage: %s <filename>\n" Sys.argv.(0)
-  else
-    let filename = Sys.argv.(1) in
-    let raw = read_whole_file filename in
-    let inp = parse_line raw in
-    let p1, p2 =
-      match inp with
-      | Some list -> (day2_part1 list, day2_part2 list)
-      | _ -> failwith "empty file!"
-    in
-    printf "part 1: %d\npart 2: %d\n" p1 p2
+let solve filename =
+  let raw = Utils.read_whole_file filename in
+  let inp = parse_line raw in
+  match inp with
+  | Some list -> 
+      let p1 = day2_part1 list in
+      let p2 = day2_part2 list in
+      printf "Day 2 - Part 1: %d\nDay 2 - Part 2: %d\n" p1 p2
+  | _ -> failwith "empty file!"
