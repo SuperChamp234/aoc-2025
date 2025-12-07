@@ -53,12 +53,12 @@ aoc-2025/
 
 ### Running Solutions
 
-Each day's solution is a standalone OCaml executable. To run a specific day's solution:
+Each day's solution is located in `lib/solutions/dayN/dayN.ml`. To run a specific day's solution:
 
 ```bash
-# Run using dune exec
-dune exec -- lib/solutions/day1/day1.exe <input_file>
-dune exec -- lib/solutions/day2/day2.exe <input_file>
+# Run directly with OCaml interpreter
+ocaml lib/solutions/day1/day1.ml <input_file>
+ocaml lib/solutions/day2/day2.ml <input_file>
 # ... and so on for other days
 ```
 
@@ -66,7 +66,7 @@ Replace `<input_file>` with the path to your input file for that day's challenge
 
 Example:
 ```bash
-dune exec -- lib/solutions/day1/day1.exe input.txt
+ocaml lib/solutions/day1/day1.ml input.txt
 ```
 
 ### Running Tests
