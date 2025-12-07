@@ -55,22 +55,19 @@ aoc-2025/
 
 Each day's solution is located in `lib/solutions/dayN/dayN.ml`. 
 
-**Option 1: Compile and run directly (for solutions without dependencies)**
-```bash
-# Day 1 can be run directly as it doesn't use external modules
-ocaml lib/solutions/day1/day1.ml <input_file>
-```
+To run a specific day's solution, you can compile it manually:
 
-**Option 2: Compile individual solutions (recommended)**
 ```bash
-# Compile a specific day's solution
+# For day1 (standalone, no dependencies):
 ocamlopt -o day1 lib/solutions/day1/day1.ml
 ./day1 <input_file>
 
-# For days that use the Utils module (day2-day5), compile with the utils module
-ocamlopt -I lib/utils -o day2 lib/utils/utils.ml lib/solutions/day2/day2.ml
-./day2 <input_file>
+# For day3 (uses Utils module):
+ocamlopt -I lib/utils -o day3 lib/utils/utils.ml lib/solutions/day3/day3.ml
+./day3 <input_file>
 ```
+
+**Note**: Not all day solutions have standalone executables. Some days (like day2, day4, day5) provide functions that can be called from the library but don't have a main entry point.
 
 Replace `<input_file>` with the path to your input file for that day's challenge.
 
