@@ -9,12 +9,12 @@ let () =
   let input_file = Sys.argv.(2) in
   
   match day with
-  | "day1" -> Day1.solve input_file
-  | "day2" -> Day2.solve input_file
-  | "day3" -> Day3.solve input_file
-  | "day4" -> Day4.solve input_file
-  | "day5" -> Day5.solve input_file
+  | "1" -> Day1.solve input_file
+  | "2" -> Day2.solve input_file
+  | "3" -> Day3.solve input_file
+  | "4" -> Day4.solve input_file
+  | "5" -> Day5.solve input_file
+  | "6" -> Day6.solve input_file
   | _ -> 
-      Printf.eprintf "Unknown day: %s\n" day;
-      Printf.eprintf "Available days: day1, day2, day3, day4, day5\n";
+      Printf.eprintf "Unimplemented day!\n";
       exit 1
