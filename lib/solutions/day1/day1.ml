@@ -74,14 +74,10 @@ let day1_part_2 lines initial_dial =
   in
   process 0 initial_dial lines
 
-let () =
-  if Array.length Sys.argv < 2 then
-    Printf.printf "Usage: %s <filename>\n" Sys.argv.(0)
-  else
-    let filename = Sys.argv.(1) in
-    let raw = read_whole_file filename in
-    let ops = String.split_on_char '\n' raw |> List.filter_map parse_line in
-    let initial = 50 in
-    let p1 = day1_part_1 ops initial in
-    let p2 = day1_part_2 ops initial in
-    printf "part1: %d\npart2: %d\n" p1 p2
+let solve filename =
+  let raw = read_whole_file filename in
+  let ops = String.split_on_char '\n' raw |> List.filter_map parse_line in
+  let initial = 50 in
+  let p1 = day1_part_1 ops initial in
+  let p2 = day1_part_2 ops initial in
+  printf "part1: %d\npart2: %d\n" p1 p2
