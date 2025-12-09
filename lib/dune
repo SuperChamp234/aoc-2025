@@ -1,6 +1,8 @@
 (library
  (name aoc_2025)
  (modules_without_implementation)
- (wrapped false))
+ (wrapped false)
+ (libraries str)
+ )
 
 (include_subdirs unqualified)
