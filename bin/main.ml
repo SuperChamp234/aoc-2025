@@ -15,6 +15,7 @@ let () =
   | "4" -> Day4.solve input_file
   | "5" -> Day5.solve input_file
   | "6" -> Day6.solve input_file
+  | "7" -> Day7.solve input_file
   | _ -> 
       Printf.eprintf "Unimplemented day!\n";
       exit 1
